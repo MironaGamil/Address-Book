@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<employees>
+	<employee>
+		<name>Ali</name>
+		<home_address>home address</home_address>
+		<home_phone>0123456789</home_phone>
+		<business_address>business address</business_address>
+		<business_phone>0123456789</business_phone>
+		<cellular_phone>0123654789</cellular_phone>
+	</employee>
+</employees>  

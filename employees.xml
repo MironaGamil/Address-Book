@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<employees>
+	<employee>
+		<name>Ali</name>
+		<company_name>bibalex</company_name>
+		<home_address>home address</home_address>
+		<home_phone>0123456789</home_phone>
+		<business_address>business address</business_address>
+		<business_phone>0123456789</business_phone>
+		<fax_numbers>
+			<value>3</value>
+			<value>2</value>
+			<value>1</value>
+		</fax_numbers>
+		<cellular_phone>0123654789</cellular_phone>
+	</employee>
+</employees> 

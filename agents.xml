@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<agents>
+	<agent>
+		<name>Ali</name>
+		<home_address>home address</home_address>
+		<cellular_phone>0123654789</cellular_phone>
+	</agent>
+</agents> 
