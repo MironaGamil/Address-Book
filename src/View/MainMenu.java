@@ -41,7 +41,7 @@ public class MainMenu {
 
 		// This will center the JFrame in the middle of the screen
 		guiFrame.setLocationRelativeTo(null);
-		guiFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		guiFrame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
 		employees = new JButton("Employees");
 		gbc.insets = new Insets(0, 0, 0, 10);
@@ -53,6 +53,14 @@ public class MainMenu {
 
 		guiFrame.add(mainPanel);
 		guiFrame.setVisible(true);
+		
+		guiFrame.addWindowListener(new java.awt.event.WindowAdapter() {
+		    @Override
+		    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+		        control.MySQLAccess.close();
+		        System.exit(0);
+		    }
+		});
 	}
 
 	public void buttons_listner(){

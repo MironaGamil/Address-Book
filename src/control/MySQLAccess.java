@@ -8,9 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
 public class MySQLAccess {
 	private static Connection connection = null;
 	private static CallableStatement CBstatement = null;
@@ -222,6 +219,21 @@ public class MySQLAccess {
 
 	}
 	
+	public static boolean delete_agent(int id) {
+		try {
+			CBstatement = connection.prepareCall("{call deleteAgent (?)}");
+			CBstatement.setInt(1, id);
+			CBstatement.execute();
+			return true;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+
+	}
+	
 	
 
 	public static String search_by_id(int id) {
@@ -297,20 +309,6 @@ public class MySQLAccess {
 
 	}
 	
-	public static boolean delete_agent(int id) {
-		try {
-			CBstatement = connection.prepareCall("{call deleteAgent (?)}");
-			CBstatement.setInt(1, id);
-			CBstatement.execute();
-			return true;
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return false;
-
-	}
 	
 
 	public static boolean update_employee(String id, String name, String cName, String hAddr,
@@ -321,10 +319,10 @@ public class MySQLAccess {
 			CBstatement.setString(2, name);
 			CBstatement.setString(3, cName);
 			CBstatement.setString(4, hAddr);
-			CBstatement.setInt(5, Integer.parseInt(hNumber));
+			CBstatement.setString(5, hNumber);
 			CBstatement.setString(6, bAddr);
-			CBstatement.setInt(7, Integer.parseInt(bNumber));
-			CBstatement.setInt(8, Integer.parseInt(cNumber));
+			CBstatement.setString(7, bNumber);
+			CBstatement.setString(8, cNumber);
 
 
 			CBstatement.execute();
@@ -362,7 +360,7 @@ public class MySQLAccess {
 			CBstatement.setInt(1,Integer.parseInt(id));
 			CBstatement.setString(2, name);
 			CBstatement.setString(3, address);
-			CBstatement.setInt(4, Integer.parseInt(phone));
+			CBstatement.setString(4, phone);
 
 
 			CBstatement.execute();
@@ -376,7 +374,8 @@ public class MySQLAccess {
 		
 	}
 
-	private void close() {
+	public static void close() {
+		System.out.println("close");
 		try {
 			if (CBstatement != null) {
 				CBstatement.close();
