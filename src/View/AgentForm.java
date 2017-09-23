@@ -10,6 +10,7 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -137,6 +138,29 @@ public abstract class AgentForm {
 		});
 		;
 
+	}
+	
+	public boolean validate(){
+		if (nameField.getText().equals("")){
+			JOptionPane.showMessageDialog(guiFrame,
+					"Name can't be empty!", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+			
+		}else if (addressField.getText().equals("")){
+			JOptionPane.showMessageDialog(guiFrame,
+					"Address can't be empty!", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+			
+		}else if(phoneField.getText().equals("")){
+			JOptionPane.showMessageDialog(guiFrame,
+					"Phone number can't be empty!", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+			
+		}
+		return true;
 	}
 
 

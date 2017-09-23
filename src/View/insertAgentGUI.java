@@ -16,7 +16,8 @@ public class insertAgentGUI extends AgentForm {
 		okay.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				insert();
+				if(validate())
+					insert();
 			}
 		});
 	}

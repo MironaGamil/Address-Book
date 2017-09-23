@@ -29,7 +29,8 @@ public class EditAgentGUI extends AgentForm{
 		okay.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				update();
+				if (validate())
+					update();
 			}
 		});
 	}

@@ -235,5 +235,53 @@ public abstract class EmployeeForm {
 		});;
 	}
 	
+	public boolean validate(){
+		if (nameField.getText().equals("")){
+			JOptionPane.showMessageDialog(guiFrame,
+					"Name can't be empty!", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+			
+		}else if (companyField.getText().equals("")){
+			JOptionPane.showMessageDialog(guiFrame,
+					"Comapny name can't be empty!", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+			
+		}else if(homeAddressField.getText().equals("")){
+			JOptionPane.showMessageDialog(guiFrame,
+					"Home address can't be empty!", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+			
+		}else if(homePhoneField.getText().equals("")){
+			JOptionPane.showMessageDialog(guiFrame,
+					"Phone home can't be empty!", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+			
+		}else if(busAddressField.getText().equals("")){
+			JOptionPane.showMessageDialog(guiFrame,
+					"Business address can't be empty!", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+			
+		}else if(busPhoneField.getText().equals("")){
+			JOptionPane.showMessageDialog(guiFrame,
+					"Phone business can't be empty!", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+			
+		}else if(phoneField.getText().equals("")){
+			JOptionPane.showMessageDialog(guiFrame,
+					"Phone number can't be empty!", "Error",
+					JOptionPane.ERROR_MESSAGE);
+			return false;
+			
+		}
+		return true;
+		
+	}
+	
 
 }

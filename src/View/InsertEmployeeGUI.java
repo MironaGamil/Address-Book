@@ -18,7 +18,8 @@ public class InsertEmployeeGUI  extends EmployeeForm{
 		okay.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				insert();
+				if(validate())
+					insert();
 			}
 		});
 	}
@@ -51,10 +52,16 @@ public class InsertEmployeeGUI  extends EmployeeForm{
 		String[] parts = numbers.split(",");
 		boolean execute= false;
 		for(int i=0; i< parts.length; i++){
-			execute = control.MySQLAccess.insert_to_faxnumbers(id, parts[i]);
-			if (!execute){
-				JOptionPane.showMessageDialog(guiFrame, "failed to insert!");
-				break;
+			if(handler.Validations.validate_fax(parts[i], guiFrame)){
+				execute = control.MySQLAccess.insert_to_faxnumbers(id, parts[i]);
+				if (!execute){
+					JOptionPane.showMessageDialog(guiFrame, "failed to insert!");
+					break;
+				}
+			}
+			else{
+				System.out.println("hnaaaaa");
+				control.MySQLAccess.delete_employee(id);
 			}
 
 		}
