@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 public class insertAgentGUI extends AgentForm {
 
 	insertAgentGUI() {
-		super("insert");
+		super("Insert Agent");
 		click_insert_button();
 	}
 	

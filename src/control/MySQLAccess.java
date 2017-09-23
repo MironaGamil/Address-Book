@@ -236,10 +236,10 @@ public class MySQLAccess {
 	
 	
 
-	public static String search_by_id(int id) {
+	public static String search_employee_by_id(int id) {
 		String result = "";
 		try {
-			CBstatement = connection.prepareCall("{call searchByID (?)}");
+			CBstatement = connection.prepareCall("{call searchEmployeeByID (?)}");
 			CBstatement.setInt(1, id);
 			// CBstatement.execute();
 			ResultSet rs = CBstatement.executeQuery();

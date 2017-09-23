@@ -243,7 +243,7 @@ public class MainEmployee {
 		editButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				String employee = control.MySQLAccess.search_by_id(Integer.parseInt(editField.getText()));
+				String employee = control.MySQLAccess.search_employee_by_id(Integer.parseInt(editField.getText()));
 				if(employee.equals("")){
 					JOptionPane.showMessageDialog(guiFrame, "not found!");
 				}
