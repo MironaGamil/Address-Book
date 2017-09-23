@@ -60,7 +60,6 @@ public class InsertEmployeeGUI  extends EmployeeForm{
 				}
 			}
 			else{
-				System.out.println("hnaaaaa");
 				control.MySQLAccess.delete_employee(id);
 			}
 

@@ -114,7 +114,7 @@ public class MySQLAccess {
 		
 	}
 	
-	public static void get_Search_result(ResultSet rs){
+	public static void get_Search_result(ResultSet rs, boolean fax){
 		try {
 			if (!rs.isBeforeFirst() ) {    
 			    System.out.println("No data");
@@ -125,9 +125,13 @@ public class MySQLAccess {
 				ResultSetMetaData metadata = rs.getMetaData();
 			    int columnCount = metadata.getColumnCount();
 			    String [] columns = new String [columnCount];
+			    columns = fax? new String[columnCount+1] : new String[columnCount];
+			    	
 			    for (int i = 1; i <= columnCount; i++) {
 			    	columns[i-1]= metadata.getColumnName(i); 
 			    }
+			    if(fax)
+			    	columns[columnCount]="Fax Numbers";
 			    
 			    
 			    List<List<String>> table = new ArrayList<List<String>>();
@@ -138,6 +142,8 @@ public class MySQLAccess {
 					for (int i = 1; i <= columnCount; i++) {
 			           table_row.add(rs.getString(i));          
 			        }
+					if(fax)
+						table_row.add(search_fax_by_id(Integer.parseInt(rs.getString(1))));
 					table.add(table_row);
 					System.out.println(rs.getString(1));
 				}
@@ -163,7 +169,7 @@ public class MySQLAccess {
 			CBstatement.setString(1, name);
 			// CBstatement.execute();
 			ResultSet rs = CBstatement.executeQuery();
-			get_Search_result(rs);
+			get_Search_result(rs,true);
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -178,7 +184,7 @@ public class MySQLAccess {
 			CBstatement.setString(1, cName);
 			// CBstatement.execute();
 			ResultSet rs = CBstatement.executeQuery();
-			get_Search_result(rs);
+			get_Search_result(rs,true);
 			
 
 		} catch (SQLException e) {
@@ -194,7 +200,7 @@ public class MySQLAccess {
 			CBstatement.setString(1, name);
 			// CBstatement.execute();
 			ResultSet rs = CBstatement.executeQuery();
-			get_Search_result(rs);			
+			get_Search_result(rs,false);			
 			
 
 		} catch (SQLException e) {

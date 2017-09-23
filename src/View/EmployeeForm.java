@@ -44,10 +44,10 @@ public abstract class EmployeeForm {
 	
 	private String title;
 	public EmployeeForm(String title){
+		this.title=title;
 		add_components();
 		on_button_click();
 		on_textfield_write();
-		this.title=title;
 	}
 	
 	public void add_components() {

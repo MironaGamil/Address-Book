@@ -35,10 +35,10 @@ public abstract class AgentForm {
 
 	
 	public AgentForm(String title){
+		this.title=title;
 		add_components();
 		on_button_click();
 		on_textfield_write();
-		this.title=title;
 	}
 	
 	public void add_components() {
